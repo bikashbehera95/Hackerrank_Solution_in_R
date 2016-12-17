@@ -1,0 +1,4 @@
+nums <- suppressWarnings(readLines("/dev/stdin"))
+time_vec <- as.POSIXct(nums, format = "%I:%M:%S%p")
+time_str <- format(time_vec, format = "%H:%M:%S")
+writeLines(time_str, stdout())
