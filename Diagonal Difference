@@ -1,0 +1,12 @@
+nums <- suppressWarnings(read.table("stdin", header = FALSE, sep = " ", fill = TRUE))
+order <- nums[1,1]
+sum1 <- 0
+sum2 <- 0
+data <- nums[-1,]
+for (i in 1:order) {
+  sum1 <- sum1 + data[i,i]
+  sum2 <- sum2 + data[i, (order+1-i)]
+}
+
+ans <- abs(sum2-sum1)
+write.table(ans, stdout(), row.names = FALSE, col.names = FALSE)
