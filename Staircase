@@ -1,0 +1,15 @@
+nums <- suppressWarnings(read.table(file = "/dev/stdin",header = FALSE, sep = " ", fill = TRUE))
+order <- as.numeric(nums)
+stair <- matrix(, nrow = order, ncol = order)
+
+for (i in 1:order) {
+  for (j in 1:order) {
+    if (i + j <= order) {
+      stair[i,j] <- " "
+    }else
+      stair[i,j] <- "#"
+  }
+}
+ans <- stair
+#write(ans, file = "ans.txt", sep = "  ")
+write.table(ans, stdout(),row.names = FALSE, col.names = FALSE, quote = FALSE, sep = "")
