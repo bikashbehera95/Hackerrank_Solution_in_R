@@ -1,0 +1,18 @@
+nums <- suppressWarnings(read.table(file = "/dev/stdin",header = FALSE, sep = " "))
+alice <- nums[1,]
+bob <- nums[2,]
+alice_score <- 0
+bob_score <- 0
+for (i in seq_along(nums)) {
+  if (alice[i] > bob[i]) {
+    alice_score <- alice_score +1
+  }else if(alice[i] < bob[i]) {
+    bob_score <- bob_score +1
+  }
+  else{
+    next()
+  }
+}
+ans <- data.frame(alice_score, bob_score)
+#write(ans, file = "ans.txt", sep = "  ")
+write.table(ans, stdout(), sep = " ",row.names = FALSE, col.names = FALSE)
