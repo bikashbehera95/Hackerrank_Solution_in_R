@@ -1,0 +1,8 @@
+nums <- suppressWarnings(read.table(file = "/dev/stdin",header = FALSE, sep = " ", fill = TRUE))
+#single_array <- c(nums[1,],nums[2,])
+ans <- sum(as.numeric(nums[2,]))
+
+
+#write(ans, file = "ans.txt", sep = "  ")
+write.table(ans, stdout(), sep = "  ",row.names = FALSE, col.names = FALSE)
+
