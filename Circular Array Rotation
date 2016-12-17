@@ -1,0 +1,13 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+nums <- scan("/dev/stdin", sep=" ")
+n <- nums[1]
+k <- nums[2]
+q <- nums[3]
+vec <- nums[4:(4+n-1)]
+m <- nums[(4+n):length(nums)]
+
+
+k <- k%%n
+m <- (m - k)%%n + 1
+
+write.table(matrix(vec[m]), sep = "", append=T, row.names = F, col.names = F)
