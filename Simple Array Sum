@@ -1,0 +1,3 @@
+nums <- read.table("/dev/stdin", header = FALSE, sep = " ", skip = 1)
+ans <-  sum(nums)
+write(ans, stdout())
