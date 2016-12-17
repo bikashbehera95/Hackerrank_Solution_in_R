@@ -1,0 +1,19 @@
+nums <- suppressWarnings(read.table(file = "/dev/stdin",header = FALSE, sep = " ", fill = TRUE))
+array_size <- nums[1,1]
+main_array <- nums[-1,]
+positive_count <- 0
+negative_count <- 0
+zero_count <- 0
+
+for (i in 1:array_size) {
+  if (main_array[i] > 0) {
+    positive_count <- positive_count + 1
+  } else if (main_array[i] <0) {
+    negative_count <- negative_count +1
+  } else if(main_array[i] == 0){
+    zero_count <- zero_count + 1
+  }
+}
+ans <- rbind(positive_count/array_size, negative_count/array_size, zero_count/array_size)
+#write(ans, file = "ans.txt", sep = "  ")
+write.table(ans, stdout(),row.names = FALSE, col.names = FALSE)
