@@ -1,0 +1,9 @@
+#Main Idea was to convert ASCI character to decimal values to find the relative heights
+
+nums <- scan("/dev/stdin", what = c(integer(),character()), sep = "")
+heights <- as.numeric(nums[-27])
+word <- strsplit(nums[27], split = "")[[1]]
+asc <- function(x) { strtoi(charToRaw(x),16L) }
+location <- mapply(x= word, FUN = asc)- asc("a") +1
+area <- max(heights[location]) * length(word)
+write(area, stdout())
